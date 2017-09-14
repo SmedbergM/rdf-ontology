@@ -39,7 +39,7 @@ dc:date rdf:type owl:AnnotationProperty .
 #################################################################
 
 ###  http://adp.athlinks.com/schema/exerciseType
-:exerciseType rdf:type owl:ObjectProperty ;
+athlinks:exerciseType rdf:type owl:ObjectProperty ;
               rdfs:domain schema:ExerciseAction ;
               rdfs:range :AthleticEventCategory ;
               dc:creator "nextdude"^^xsd:string ;
@@ -60,7 +60,7 @@ dc:date rdf:type owl:AnnotationProperty .
 
 
 ### http://adp.athlinks.com/schema/age
-:age rdf:type owl:DatatypeProperty ;
+athlinks:age rdf:type owl:DatatypeProperty ;
                  rdfs:domain schema:Person ;
                  rdfs:range xsd:integer ;
                  dc:creator "nextdude"^^xsd:string ;
@@ -96,7 +96,7 @@ dc:date rdf:type owl:AnnotationProperty .
 #################################################################
 
 ###  http://adp.athlinks.com/schema/AggregateTeam
-:AggregateTeam rdf:type owl:Class ;
+athlinks:AggregateTeam rdf:type owl:Class ;
                rdfs:subClassOf schema:SportsTeam ;
                dc:creator "nextdude"^^xsd:string ;
                dc:date "2017-05-22T05:19:09Z"^^xsd:dateTime ;
