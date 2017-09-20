@@ -379,7 +379,7 @@ schema:GenderType dc:creator "nextdude"^^xsd:string ;
 
 
 :activityType
-  a owl:ObjectProperty
+  a owl:ObjectProperty ;
   rdfs:domain [
     a owl:Class ;
     owl:unionOf(:AthleticRace, :AthleteResult) ;
