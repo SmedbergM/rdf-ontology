@@ -93,6 +93,14 @@ dc:date rdf:type owl:AnnotationProperty .
   rdfs:comment "Number of races completed by an athlete."@en ;
   rdfs:label "Number of races"@en .
 
+###  http://adp.athlinks.com/schema/rank
+:rank a owl:DatatypeProperty ;
+  rdfs:domain :AthleteResult ;
+  rdfs:range xsd:integer ;
+  rdfs:comment "The numeric rank of an individual in a ranking."@en ;
+  rdfs:label "rank"@en .
+
+
 #################################################################
 #    Classes
 #################################################################
@@ -384,13 +392,6 @@ dc:date rdf:type owl:AnnotationProperty .
 :CohortGenderUnspecified a owl:NamedIndividual, :AthleteCohort ;
   rdfs:comment "Cohort Ranking Type for athletes with unspecified gender"@en ;
   rdfs:label "Cohort: Gender Unspecified"@en .
-
-###  http://adp.athlinks.com/schema/rank
-:rank a owl:DatatypeProperty ;
-  rdfs:domain :AthleteResult ;
-  rdfs:range xsd:integer ;
-  rdfs:comment "The numeric rank of an individual in a ranking."@en ;
-  rdfs:label "rank"@en .
 
 ###  http://adp.athlinks.com/schema/ActivityType
 :ActivityType
