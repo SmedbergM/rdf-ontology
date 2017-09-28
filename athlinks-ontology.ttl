@@ -127,12 +127,7 @@ dc:date rdf:type owl:AnnotationProperty .
                rdfs:label "Athlete cohort"@en .
 
 :athleteCohort a owl:ObjectProperty ;
-  rdfs:domain [
-    rdf:type owl:Class ;
-    owl:unionOf ( # We expect this predicate to be applicable to other classes
-      :CohortRanking
-    )
-  ] ;
+  rdfs:domain :AthleteResult ;
   rdfs:range :AthleteCohort . 
 
 ###  http://adp.athlinks.com/schema/AthleteIdentifierAssignment
@@ -374,58 +369,25 @@ dc:date rdf:type owl:AnnotationProperty .
             rdfs:comment "Exercise by swimming"@en ;
             rdfs:label "Swim Action"@en .
 
-###  http://adp.athlinks.com/schema/CohortRankingType
-:CohortRankingType rdf:type owl:Class ;
-  rdfs:subClassOf schema:Intangible ;
-  rdfs:comment "A predefined rule for associating entries to a cohort."@en ;
-  rdfs:label "Cohort Ranking Type"@en .
+###  http://adp.athlinks.com/schema/CohortOverall
+:CohortOverall a owl:NamedIndividual, :AthleteCohort ;
+  rdfs:label "Cohort: Overall"@en .
 
-:cohortRankingType a owl:ObjectProperty ;
-  rdfs:domain :CohortRanking ;
-  rdfs:range [
-    rdf:type owl:Class ;
-    owl:unionOf(
-      :CohortRankingType
-      xsd:string
-    )
-  ] ;
-  rdfs:comment "The cohort ranking type of this CohortRanking; either one of the predefined ones, or a string denoting a custom cohort type (e.g. military)."@en ;
-  rdfs:label "cohort ranking type"@en .
-
-###  http://adp.athlinks.com/schema/OverallRanking
-:OverallRanking a owl:NamedIndividual, :CohortRankingType ;
-  rdfs:label "Overall Ranking"@en .
-
-:GenderRankingMale a owl:NamedIndividual, :CohortRankingType ;
+:CohortMale a owl:NamedIndividual, :AthleteCohort ;
   rdfs:comment "Cohort Ranking Type for male athletes."@en ;
-  rdfs:label "Gender Ranking: Male"@en .
+  rdfs:label "Cohort: Male"@en .
 
-:GenderRankingFemale a owl:NamedIndividual, :CohortRankingType ;
+:CohortFemale a owl:NamedIndividual, :AthleteCohort ;
   rdfs:comment "Cohort Ranking Type for female athletes."@en ;
-  rdfs:label "Gender Ranking: Female"@en .
+  rdfs:label "Cohort: Female"@en .
 
-:GenderRankingUnspecified a owl:NamedIndividual, :CohortRankingType ;
+:CohortGenderUnspecified a owl:NamedIndividual, :AthleteCohort ;
   rdfs:comment "Cohort Ranking Type for athletes with unspecified gender"@en ;
-  rdfs:label "Gender Ranking: Unspecified"@en .
-
-###  http://adp.athlinks.com/schema/CohortRanking
-:CohortRanking rdf:type owl:Class ;
-  rdfs:subClassOf schema:Intangible ;
-  rdfs:comment "An individual result's ranking in a cohort."@en ;
-  rdfs:label "Cohort Ranking" .
-  # Expected properties: 
-  #  :athleteCohort -> :AthleteCohort
-  #  :rank -> Int
-
-:cohortRanking a owl:ObjectProperty ;
-  rdfs:domain :AthleteResult ;
-  rdfs:range :CohortRanking ;
-  rdfs:comment "A ranking of the individual result within a cohort."@en ;
-  rdfs:label "cohort ranking"@en .
+  rdfs:label "Cohort: Gender Unspecified"@en .
 
 ###  http://adp.athlinks.com/schema/rank
 :rank a owl:DatatypeProperty ;
-  rdfs:domain :CohortRanking ;
+  rdfs:domain :AthleteResult ;
   rdfs:range xsd:integer ;
   rdfs:comment "The numeric rank of an individual in a ranking."@en ;
   rdfs:label "rank"@en .
